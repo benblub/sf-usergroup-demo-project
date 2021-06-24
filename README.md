@@ -6,7 +6,7 @@ Dont use this Repository on production. Its for Demo purposes with :heart: creat
 https://symfony.com/doc/current/setup.html#technical-requirements
 
 ## Install
-install with composer `composer create-project benblub/activity-recorder`
+install with composer `composer create-project benblub/sf-usergroup-demo-project`
 
 or
 
