@@ -1,19 +1,31 @@
-name: my-first-symfony-app
-recipe: symfony
-config:
-  webroot: public
-  php: '8.0'
-  via: apache
-  ssl: true
-  xdebug: true
-  build:
-    - composer self-update
-    - composer install
+name: demo
 
+proxy:
+  api:
+    - api.demo.lndo.site
+  mailhog:
+    - mail.demo.lndo.site
+
+services:
+  api:
+    type: php:8.0
+    via: apache
+    webroot: public
+    ssl: true
+    xdebug: true
+    build:
+      - composer self-update
+      - composer install
   db:
     type: mariadb:10.5.9
-    portforward: 37001
+    portforward: 37030
     creds:
-      database: sfgroup_demo
+      database: sf_user_group_demo
       user: mariadb
       password: mariadb
+
+  mailhog:
+    type: mailhog:v1.0.0
+    portforward: true
+    hogfrom:
+      - api
